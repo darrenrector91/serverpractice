@@ -5,12 +5,16 @@ var bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({extended: true})); ///Need to remember
 
+var recordCollection = [];
+
 //Serve up static files
 app.use(express.static('server/public'));
 
 //Records POST route
 app.post('/records', function(req, res) {
-    console.log(req.body);
+    console.log(req.body); //req.body will be our recordForSale sent from client
+    var recordToAdd = req.body;
+    recordCollection.push(recordCollection);
     res.sendStatus(201);
 });
 
