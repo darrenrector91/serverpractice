@@ -14,8 +14,9 @@ app.use(express.static('server/public'));
 //Records POST route
 app.post('/records', function(req, res) {
     console.log(req.body); //req.body will be our recordForSale sent from client
-    var recordToAdd = req.body;
-    recordCollection.push(recordCollection);
+    var recordForSale = req.body;
+    recordCollection.push(recordForSale);
+    console.log(recordCollection);
     res.sendStatus(201);
 });
 
