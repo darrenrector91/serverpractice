@@ -7,6 +7,7 @@ app.use(bodyParser.urlencoded({extended: true})); ///Need to remember
 
 var recordCollection = [];
 
+
 //Serve up static files
 app.use(express.static('server/public'));
 
@@ -16,6 +17,11 @@ app.post('/records', function(req, res) {
     var recordToAdd = req.body;
     recordCollection.push(recordCollection);
     res.sendStatus(201);
+});
+
+// Records GET route
+app.get('/records', function(req, res) {
+    res.send(recordCollection);
 });
 
 // Start up server
