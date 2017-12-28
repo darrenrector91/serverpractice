@@ -24,6 +24,26 @@ function submitForm(event) {
         console.log('Error', message);
         
     })
-    
-    
-};
+}
+
+function getRecords() {
+    $.ajax({
+        type: 'GET',
+        url: '/records',
+    }).done(function(response){
+        var recordsCollection = response;
+        appendToDom(recordsCollection);
+    })
+}
+
+function appendToDom(records) {
+    for(var i = 0; i < recorda.length; i += 1) {
+        // append to DOM
+        var record = records[i];
+        var tr = $('<tr></tr>');
+        $tr.append('<td>' + record.name + '</td>');
+        $tr.append('<td>' + record.year + '</td>');
+        $tr.append('<td>' + record.cost + '</td>');
+        $('#recordTable').append($tr);
+    }
+}
